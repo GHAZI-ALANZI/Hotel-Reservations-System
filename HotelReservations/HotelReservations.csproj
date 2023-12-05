@@ -17,6 +17,7 @@
     <None Remove="Views\Menus\tag.png" />
     <None Remove="Views\Menus\team.png" />
     <None Remove="Views\Menus\wavebckground.jpg" />
+    <None Remove="Views\Users\texturebackground.webp" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Confluent.Kafka" Version="2.3.0" />
@@ -41,5 +42,6 @@
     <Resource Include="Views\Menus\tag.png" />
     <Resource Include="Views\Menus\team.png" />
     <Resource Include="Views\Menus\wavebckground.jpg" />
+    <Resource Include="Views\Users\texturebackground.webp" />
   </ItemGroup>
 </Project>

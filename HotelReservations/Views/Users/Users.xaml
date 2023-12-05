@@ -6,7 +6,33 @@
         xmlns:local="clr-namespace:HotelReservations.Views.Users"
         mc:Ignorable="d"
         Title="Users" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Users/texturebackground.webp"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="493*"/>
+            <ColumnDefinition Width="307*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label Content="Username:" VerticalContentAlignment="Center" FontWeight="Bold"/>
+            <TextBox Name="UsernameSearchTextBox" Height="24" Width="150" Margin="3" VerticalContentAlignment="Center" PreviewKeyUp="UsernameSearchTB_PreviewKeyUp"/>
+        </StackPanel>
+
+        <ToolBar Grid.Row="1" Background="{x:Null}" Grid.ColumnSpan="2">
+            <Button Name="AddButton" Content="Add" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="AddButton_Click" Background="#FF0585F3" Foreground="White"></Button>
+            <Button Name="EditButton" Content="Edit" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="EditButton_Click" Foreground="Black" Background="#FFDADE06"></Button>
+            <Button Name="DeleteButton" Content="Delete" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="DeleteButton_Click" Foreground="#FFFBFBFB" Background="#FFED0C0C"></Button>
+        </ToolBar>
+
+        <DataGrid SelectionMode="Single" Grid.Row="2" Name="UsersDataGrid" IsReadOnly="True" AutoGeneratingColumn="UsersDataGrid_AutoGeneratingColumn" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2">
+
+        </DataGrid>
     </Grid>
 </Window>

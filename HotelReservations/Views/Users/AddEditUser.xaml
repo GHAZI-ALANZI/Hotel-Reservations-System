@@ -6,7 +6,108 @@
         xmlns:local="clr-namespace:HotelReservations.Views.Users"
         mc:Ignorable="d"
         Title="AddEditUser" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Users/texturebackground.webp"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal" >
+                <Label Height="30" Width="150" Content="User type:" Margin="0,0,0,20" FontWeight="Bold"/>
+                <ComboBox Name="UserTypeCB" Height="30" Width="150" VerticalContentAlignment="Center" Margin="0,0,0,15" SelectedItem="{Binding user_type}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Height="30" Width="150" Content="Username: " Margin="0,0,0,20" FontWeight="Bold"/>
+                <TextBox BorderBrush="Black" Name="UsernameTextBox" Height="30" Width="150" VerticalContentAlignment="Center" Margin="0,0,0,15"
+         Text="{Binding Path=username, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder/>
+                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Content="*" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Height="30" Width="150" Content="Name: " Margin="0,0,0,20" FontWeight="Bold"/>
+                <TextBox BorderBrush="Black" Name="NameTextBox" Height="30" Width="150" VerticalContentAlignment="Center" Margin="0,0,0,15"
+         Text="{Binding Path=first_name, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder/>
+                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Content="*" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Height="30" Width="150" Content="Surname: " Margin="0,0,0,20" FontWeight="Bold"/>
+                <TextBox BorderBrush="Black" Name="SurnameTextBox" Height="30" Width="150" VerticalContentAlignment="Center" Margin="0,0,0,15"
+         Text="{Binding Path=last_name, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder/>
+                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Content="*" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Height="30" Width="150" Content="Password: " Margin="0,0,0,20" FontWeight="Bold"/>
+                <TextBox BorderBrush="Black" Name="PasswordTextBox" Height="30" Width="150" VerticalContentAlignment="Center" Margin="0,0,0,15"
+         Text="{Binding Path=password, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder/>
+                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Content="*" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Height="30" Width="150" Content="JMBG: " Margin="0,0,0,20" FontWeight="Bold"/>
+                <TextBox BorderBrush="Black" Name="JMBGTextBox" Height="30" Width="150" VerticalContentAlignment="Center" Margin="0,0,0,15"
+         Text="{Binding Path=JMBG, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder/>
+                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Content="*" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,31,0,0" Grid.RowSpan="2" >
+            <Button Name="SaveButton" Content="Save" Width="80" Height="30" Margin="5,0,5,0" Click="SaveButton_Click" Background="#FF20A976" Foreground="White" />
+            <Button Name="CancelButton" Content="Cancel" Width="80" Height="30" Click="CancelButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

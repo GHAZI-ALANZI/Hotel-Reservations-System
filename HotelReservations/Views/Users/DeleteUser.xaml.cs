@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelReservations.Model;
+using HotelReservations.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,27 @@ namespace HotelReservations.Views.Users
     /// </summary>
     public partial class DeleteUser : Window
     {
-        public DeleteUser()
+        private UserService userService;
+        private User userToDelete;
+        public DeleteUser(User user)
         {
             InitializeComponent();
+            userService = new UserService();
+            userToDelete = user;
         }
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            // add modal
+            userService.MakeUserInactive(userToDelete);
+            DialogResult = true;
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
+
     }
 }
