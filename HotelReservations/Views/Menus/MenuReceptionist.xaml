@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelReservations.Views.Menus"
         mc:Ignorable="d"
-        Title="MenuReceptionist" Height="450" Width="800">
-    <Grid>
-        
+        Title="MenuReceptionist" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Menus/wavebckground.jpg"/>
+    </Window.Background>
+    <Grid Opacity="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="73*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Button x:Name="RoomsMenuItem" Content="Rooms" HorizontalAlignment="Left" Margin="116,75,0,0" VerticalAlignment="Top" Width="125" Height="58" Background="{x:Null}" Click="RoomsMenuItem_Click" Foreground="Black" FontFamily="Segoe Print" FontSize="26" FontWeight="Bold" BorderThickness="0,0,0,0"/>
+        <Button x:Name="RoomTypeMenuItem" Content="RoomType" HorizontalAlignment="Left" Margin="116,158,0,0" VerticalAlignment="Top" Width="125" Height="58" Background="{x:Null}" Click="RoomTypeMenuItem_Click" Foreground="Black" FontWeight="Bold" FontSize="26" FontFamily="Segoe Print" BorderThickness="0,0,0,0"/>
+        <Button x:Name="PricesMenuItem" Content="Price" HorizontalAlignment="Left" Margin="383,158,0,0" VerticalAlignment="Top" Width="125" Height="58" Background="{x:Null}" Click="PricesMenuItem_Click" FontWeight="Bold" FontFamily="Segoe Print" FontSize="26" BorderThickness="0,0,0,0"/>
+        <Button x:Name="UsersMenuItem" Content="Users" HorizontalAlignment="Left" Margin="383,75,0,0" VerticalAlignment="Top" Width="125" Height="58" Background="{x:Null}" Click="UsersMenuItem_Click" FontSize="26" FontFamily="Segoe Print" FontWeight="Bold" BorderThickness="0,0,0,0"/>
+        <Button x:Name="LogoutMenuItem" Content="Logout" HorizontalAlignment="Center" Margin="0,292,0,0" VerticalAlignment="Top" Width="92" Height="58" Grid.Column="1" Click="LogoutMenuItem_Click" BorderThickness="0,0,0,0" Foreground="Black" FontSize="26" Background="{x:Null}" FontFamily="Segoe Print">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="72" Margin="209,328,0,0" VerticalAlignment="Top" Width="88" Source="/ausloggen.png" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="78" Margin="34,61,0,0" VerticalAlignment="Top" Width="63" Source="/Views/Menus/bed.png"/>
+        <Image HorizontalAlignment="Left" Height="78" Margin="34,153,0,0" VerticalAlignment="Top" Width="63" Source="/Views/Menus/bunk-bed.png"/>
+        <Image HorizontalAlignment="Left" Height="78" Margin="320,61,0,0" VerticalAlignment="Top" Width="63" Source="/Views/Menus/team.png"/>
+        <Image HorizontalAlignment="Left" Height="78" Margin="320,153,0,0" VerticalAlignment="Top" Width="63" Source="/Views/Menus/tag.png"/>
+        <Image HorizontalAlignment="Left" Height="78" Margin="32,287,0,0" VerticalAlignment="Top" Width="63" Grid.Column="1" Source="/Views/Menus/arrow.png"/>
+
     </Grid>
 </Window>

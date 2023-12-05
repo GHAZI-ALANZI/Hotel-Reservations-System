@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelReservations.Views.Menus"
         mc:Ignorable="d"
-        Title="MenuAdministrator" Height="450" Width="800">
+        Title="MenuAdministrator" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Menus/wavebckground.jpg"/>
+    </Window.Background>
     <Grid>
-        
+        <Button x:Name="Reservations" Content="Reservations" HorizontalAlignment="Left" Margin="400,71,0,0" VerticalAlignment="Top" Height="89" Width="247" Click="Reservations_Click" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="36" FontFamily="Segoe Print" BorderThickness="0,0,0,0"/>
+        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Margin="400,225,0,0" VerticalAlignment="Top" Height="89" Width="158" Click="Logout_Click" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" FontSize="36" FontFamily="Segoe Print" FontWeight="Bold" BorderThickness="0,0,0,0"/>
+        <Image HorizontalAlignment="Left" Height="127" Margin="244,52,0,0" VerticalAlignment="Top" Width="143" Source="/Views/Menus/reservations.png"/>
+        <Image HorizontalAlignment="Left" Height="115" Margin="244,199,0,0" VerticalAlignment="Top" Width="127" Source="/Views/Menus/arrow.png"/>
     </Grid>
 </Window>

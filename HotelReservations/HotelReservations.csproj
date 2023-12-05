@@ -9,6 +9,14 @@
   <ItemGroup>
     <None Remove="cubelogo.png" />
     <None Remove="logo2.png" />
+    <None Remove="Views\Menus\arrow.png" />
+    <None Remove="Views\Menus\background.png" />
+    <None Remove="Views\Menus\bed.png" />
+    <None Remove="Views\Menus\bunk-bed.png" />
+    <None Remove="Views\Menus\reservations.png" />
+    <None Remove="Views\Menus\tag.png" />
+    <None Remove="Views\Menus\team.png" />
+    <None Remove="Views\Menus\wavebckground.jpg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Confluent.Kafka" Version="2.3.0" />
@@ -25,5 +33,13 @@
   <ItemGroup>
     <Resource Include="cubelogo.png" />
     <Resource Include="logo2.png" />
+    <Resource Include="Views\Menus\arrow.png" />
+    <Resource Include="Views\Menus\background.png" />
+    <Resource Include="Views\Menus\bed.png" />
+    <Resource Include="Views\Menus\bunk-bed.png" />
+    <Resource Include="Views\Menus\reservations.png" />
+    <Resource Include="Views\Menus\tag.png" />
+    <Resource Include="Views\Menus\team.png" />
+    <Resource Include="Views\Menus\wavebckground.jpg" />
   </ItemGroup>
 </Project>

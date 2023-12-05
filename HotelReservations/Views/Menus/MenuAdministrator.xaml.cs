@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelReservations.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,23 @@ namespace HotelReservations.Views.Menus
         public MenuAdministrator()
         {
             InitializeComponent();
+        }
+
+        private void Reservations_Click(object sender, RoutedEventArgs e)
+        {
+            var reservationsWindow = new Reservations.Reservations();
+            reservationsWindow.Show();
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            // clear auth
+            Hotel.GetInstance().loggedInUser = new User();
+            //close window
+            this.Hide();
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+
         }
     }
 }
