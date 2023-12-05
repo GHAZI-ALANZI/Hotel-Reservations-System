@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelReservations"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="650" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
     <Grid Margin="267,0,0,0">
         <Grid.Background>
             <ImageBrush ImageSource="{Binding ElementName=window, Mode=OneWay}"/>
@@ -21,14 +24,34 @@
             <StackPanel.Background>
                 <ImageBrush ImageSource="{Binding ElementName=window, Mode=OneWay}"/>
             </StackPanel.Background>
-            <Label Content="Username:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+            <Label Content="Username:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Foreground="White" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-99" Y="25"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
             <TextBox Name="UsernameTextBox" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Width="100"/>
 
-            <Label Content="Password:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+            <Label Content="Password:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Foreground="White" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-99" Y="28"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
             <PasswordBox Name="PasswordBox" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Width="100"/>
 
             <Button Content="Login" Click="LoginButton_Click" HorizontalAlignment="Center" Margin="0 20 0 0" Padding="4" Width="100" Grid.Column="1" FontSize="15"/>
         </StackPanel>
+        <Image HorizontalAlignment="Left" Height="328" Margin="-287,121,0,0" Grid.Row="1" VerticalAlignment="Top" Width="299" Source="/cubelogo.png"/>
+        <Image HorizontalAlignment="Left" Height="450" Margin="131,0,0,0" VerticalAlignment="Top" Width="651" Source="/logo2.png" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
