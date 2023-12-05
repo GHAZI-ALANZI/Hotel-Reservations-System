@@ -16,7 +16,11 @@ namespace HotelReservations.Model
         public DbSet<Room> room { get; set; } 
         public DbSet<RoomType> room_type { get; set; } 
         public DbSet<User> user { get; set; }
-      
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-H9NQTJ3;Database=HotelReservations;Trusted_Connection=True;TrustServerCertificate=True"); 
+        }
+
 
     }
 }

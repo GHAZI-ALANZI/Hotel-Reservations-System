@@ -5,7 +5,8 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace HotelReservations.Model
 {
     public class User
@@ -22,6 +23,7 @@ namespace HotelReservations.Model
         public string password { get; set; } = "";
         [Required]
         public string username { get; set; } = "";
+        [Column(TypeName = "nvarchar(30)")]
         public UserType  user_type { get; set; }
 
         public bool user_is_active { get; set; } = true;
