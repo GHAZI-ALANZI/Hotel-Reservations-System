@@ -17,6 +17,7 @@
     <None Remove="Views\Menus\tag.png" />
     <None Remove="Views\Menus\team.png" />
     <None Remove="Views\Menus\wavebckground.jpg" />
+    <None Remove="Views\Prices\texturebackground.webp" />
     <None Remove="Views\Rooms\texturebackground.webp" />
     <None Remove="Views\RoomTypes\texturebackground.webp" />
     <None Remove="Views\Users\texturebackground.webp" />
@@ -44,6 +45,7 @@
     <Resource Include="Views\Menus\tag.png" />
     <Resource Include="Views\Menus\team.png" />
     <Resource Include="Views\Menus\wavebckground.jpg" />
+    <Resource Include="Views\Prices\texturebackground.webp" />
     <Resource Include="Views\Rooms\texturebackground.webp" />
     <Resource Include="Views\RoomTypes\texturebackground.webp" />
     <Resource Include="Views\Users\texturebackground.webp" />

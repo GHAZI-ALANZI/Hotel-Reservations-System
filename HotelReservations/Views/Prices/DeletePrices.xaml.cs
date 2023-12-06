@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelReservations.Model;
+using HotelReservations.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,30 @@ namespace HotelReservations.Views.Prices
     /// </summary>
     public partial class DeletePrices : Window
     {
-        public DeletePrices()
+        private PriceService priceService;
+        private Price priceToDelete;
+        public DeletePrices(Price price)
         {
             InitializeComponent();
+            priceService = new PriceService();
+            priceToDelete = price;
         }
+
+      
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            // add modal
+            priceService.MakePriceInactive(priceToDelete);
+            DialogResult = true;
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
+
+
     }
 }

@@ -10,7 +10,7 @@ namespace HotelReservations.Model
         [Key]
         public int reservation_id { get; set; }
         public string reservation_room_number { get; set; }
-        [Column(TypeName = "nvarchar(30)")]
+      
         public ReservationType reservation_type { get; set; }
         public List<Guest> Guests { get; set; } = new List<Guest>();
         public DateTime start_date_time { get; set; }
