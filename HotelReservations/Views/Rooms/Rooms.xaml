@@ -6,7 +6,40 @@
         xmlns:local="clr-namespace:HotelReservations.Views.Rooms"
         mc:Ignorable="d"
         Title="Rooms" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Rooms/texturebackground.webp"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label Content="Room number:" VerticalContentAlignment="Center" FontWeight="Bold"/>
+            <TextBox Name="RoomNumberSearchTextBox" Height="24" Width="100" Margin="3" VerticalContentAlignment="Center" PreviewKeyUp="SearchTB_PreviewKeyUp"/>
+            <Label Content="Room type:" VerticalContentAlignment="Center" Width="87" FontWeight="Bold"/>
+            <TextBox Name="RoomTypeSearchTextBox" Height="24" Width="100" Margin="3" VerticalContentAlignment="Center" PreviewKeyUp="SearchTB_PreviewKeyUp" RenderTransformOrigin="0.5,0.5">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-2"/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+        </StackPanel>
+
+        <ToolBar Grid.Row="1" Background="{x:Null}">
+            <Button Name="AddButton" Content="Add" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="AddButton_Click" Background="#FF06D2D2" Foreground="#FFEFEFEF"></Button>
+            <Button Name="EditButton" Content="Edit" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="EditButton_Click" Background="#FFECEF04"></Button>
+            <Button Name="DeleteButton" Content="Delete" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="DeleteButton_Click" Background="#FFF90606" Foreground="#FFFFF5F5"></Button>
+        </ToolBar>
+
+        <DataGrid SelectionMode="Single" Grid.Row="2" Name="RoomsDataGrid" IsReadOnly="True" AutoGeneratingColumn="RoomsDataGrid_AutoGeneratingColumn" Background="{x:Null}">
+
+        </DataGrid>
     </Grid>
 </Window>

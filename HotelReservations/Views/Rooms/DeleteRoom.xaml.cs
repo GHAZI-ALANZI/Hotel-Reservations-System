@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelReservations.Model;
+using HotelReservations.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,29 @@ namespace HotelReservations.Views.Rooms
     /// </summary>
     public partial class DeleteRoom : Window
     {
-        public DeleteRoom()
+
+        private RoomService roomService;
+        private Room roomToDelete;
+        public DeleteRoom(Room room)
         {
             InitializeComponent();
+            roomService = new RoomService();
+            roomToDelete = room;
         }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // add modal
+            roomService.MakeRoomInactive(roomToDelete);
+            DialogResult = true;
+            Close();
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
+
     }
 }

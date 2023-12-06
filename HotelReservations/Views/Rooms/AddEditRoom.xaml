@@ -6,7 +6,60 @@
         xmlns:local="clr-namespace:HotelReservations.Views.Rooms"
         mc:Ignorable="d"
         Title="AddEditRoom" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Rooms/texturebackground.webp"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Room Number: " Margin="0,0,0,15" FontWeight="Bold"/>
+                <TextBox BorderBrush="Black" Name="RoomNumberTextBox" Height="30" Width="150" VerticalContentAlignment="Center" Margin="0,0,0,15"
+                         Text="{Binding Path=room_number, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder/>
+                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Content="*" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Has minibar? " FontWeight="Bold"/>
+                <CheckBox BorderBrush="Black" Name="HasMiniBarCheckBox" VerticalAlignment="Center" IsChecked="{Binding Path=has_mini_bar}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Has TV? " FontWeight="Bold"/>
+                <CheckBox BorderBrush="Black"  Name="HasTvCheckBox"  VerticalAlignment="Center" IsChecked="{Binding Path=has_TV}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Room type: " FontWeight="Bold"/>
+                <ComboBox Name="RoomTypeComboBox" Width="150" Height="30" VerticalContentAlignment="Center" BorderBrush="Black" SelectedItem="{Binding RoomType, Mode=TwoWay}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft" >
+            <Button BorderBrush="Black" Name="SaveBtn" Content="Save" Width="80" Height="30" Margin="5,0,5,0" Click="SaveBtn_Click" Background="#FF02C3E2" Foreground="White"/>
+            <Button BorderBrush="Black" Name="CancelBtn" Content="Cancel" Width="80" Height="30" Click="CancelBtn_Click" />
+        </StackPanel>
     </Grid>
 </Window>
