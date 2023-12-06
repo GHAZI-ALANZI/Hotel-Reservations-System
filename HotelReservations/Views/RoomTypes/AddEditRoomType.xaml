@@ -6,7 +6,48 @@
         xmlns:local="clr-namespace:HotelReservations.Views.RoomTypes"
         mc:Ignorable="d"
         Title="AddEditRoomType" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/RoomTypes/texturebackground.webp"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="New Room Type: " FontWeight="Bold"/>
+                <TextBox BorderBrush="Black" Name="RoomTypeTextBox" Height="30" Width="150" VerticalContentAlignment="Center"
+                         Text="{Binding Path=room_type_name, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder/>
+                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Content="*" />
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft" >
+            <Button BorderBrush="Black" Name="SaveBtn" Content="Save" Width="80" Height="30" Margin="5,0,5,0" Click="SaveBtn_Click" Background="#FF08C1F9" Foreground="White"/>
+            <Button BorderBrush="Black" Name="CancelBtn" Content="Cancel" Width="80" Height="30" Click="CancelBtn_Click" />
+        </StackPanel>
+
     </Grid>
 </Window>

@@ -6,7 +6,31 @@
         xmlns:local="clr-namespace:HotelReservations.Views.RoomTypes"
         mc:Ignorable="d"
         Title="RoomTypes" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/RoomTypes/texturebackground.webp"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label Content="Room type:" VerticalContentAlignment="Center" FontWeight="Bold"/>
+            <TextBox Name="RoomTypeSearchTextBox" Height="24" Width="150" Margin="3" VerticalContentAlignment="Center" PreviewKeyUp="RoomTypeSearchTB_PreviewKeyUp"/>
+        </StackPanel>
+
+        <ToolBar Grid.Row="1" Background="{x:Null}">
+            <Button Name="AddButton" Content="Add" BorderBrush="Black" Padding="5,0,5,0" Click="AddButton_Click" Background="#FF10BCC4" Foreground="#FFFFF7F7"></Button>
+            <Button Name="EditButton" Content="Edit" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="EditButton_Click" Foreground="Black" Background="#FFF1DF06"></Button>
+            <Button Name="DeleteButton" Content="Delete" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="DeleteButton_Click" Background="#FFEB0505" Foreground="#FFFFFEFE"></Button>
+        </ToolBar>
+
+        <DataGrid SelectionMode="Single" Grid.Row="2" Name="RoomTypesDataGrid" IsReadOnly="True" AutoGeneratingColumn="RoomTypesDataGrid_AutoGeneratingColumn" Background="{x:Null}">
+
+        </DataGrid>
+
     </Grid>
 </Window>
+

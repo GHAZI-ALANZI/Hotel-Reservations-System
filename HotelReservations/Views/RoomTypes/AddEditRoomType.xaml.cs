@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelReservations.Model;
+using HotelReservations.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,68 @@ namespace HotelReservations.Views.RoomTypes
     /// </summary>
     public partial class AddEditRoomType : Window
     {
-        public AddEditRoomType()
+
+        private RoomTypeService roomTypeService;
+        private RoomType contextRoomType;
+        private bool isEditing;
+        public AddEditRoomType(RoomType? roomType = null)
         {
+            if (roomType == null)
+            {
+                contextRoomType = new RoomType();
+                isEditing = false;
+            }
+            else
+            {
+                contextRoomType = roomType.Clone();
+                isEditing = true;
+            }
             InitializeComponent();
+            roomTypeService = new RoomTypeService();
+            AdjustWindow(roomType);
+            this.DataContext = contextRoomType;
+        }
+
+
+        public void AdjustWindow(RoomType? roomType = null)
+        {
+            if (roomType != null)
+            {
+                Title = "Edit RoomType";
+            }
+            else
+            {
+                Title = "Add RoomType";
+            }
+
+        }
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (contextRoomType.room_type_name == "")
+            {
+                MessageBox.Show("RoomType Name can't be empty string.", "RoomType Name Empty", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            if (isEditing == false)
+            {
+                bool roomTypeExists = roomTypeService.GetAllRoomTypes().Where(roomType => roomType.room_type_is_active == true).Any(roomType => roomType.room_type_name == contextRoomType.room_type_name);
+                if (roomTypeExists == true)
+                {
+                    MessageBox.Show("RoomType Name already exists.", "RoomType Name Exists", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+            }
+
+            // validation passed
+            roomTypeService.SaveRoomType(contextRoomType);
+            DialogResult = true;
+            Close();
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
         }
     }
 }
