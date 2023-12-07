@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelReservations.Views.Reservations"
         mc:Ignorable="d"
-        Title="AddEditReservations" Height="462" Width="800">
+        Title="AddEditReservations" Height="462" Width="1077">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Reservations/texturebackground.webp"/>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -17,47 +20,95 @@
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
-        <ToolBar Grid.Row="0">
-            <Label Content="Rooms" VerticalContentAlignment="Center" Width="90"/>
-            <Label Content="Room type:" VerticalContentAlignment="Center" Width="70"/>
+        <ToolBar Grid.Row="0" Background="{x:Null}">
+            <Label Content="Rooms" VerticalContentAlignment="Center" Width="90" FontWeight="Bold"/>
+            <Label Content="Room type:" VerticalContentAlignment="Center" Width="88" FontWeight="Bold"/>
             <ComboBox Name="RoomTypeComboBox" Width="150" Height="30" VerticalContentAlignment="Center" BorderBrush="Black"/>
-            <Label Content="Start:" VerticalContentAlignment="Center" Width="90"/>
+            <Label Content="Start:" VerticalContentAlignment="Center" Width="50" FontWeight="Bold"/>
             <DatePicker Name="CheckStartDate" Margin="5,0,5,0" VerticalContentAlignment="Center"/>
-            <Label Content="End:" Width="90" VerticalContentAlignment="Center"/>
-            <DatePicker Name="CheckEndDate" Margin="5,0,5,0" VerticalContentAlignment="Center" />
+            <Label Content="End:" Width="90" VerticalContentAlignment="Center" FontWeight="Bold"/>
+            <DatePicker Name="CheckEndDate" Margin="5,0,5,0" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                <DatePicker.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-52"/>
+                    </TransformGroup>
+                </DatePicker.RenderTransform>
+            </DatePicker>
             <Button Name="CheckAvailableRoomsButton" Content="Check available rooms" BorderBrush="Black" Padding="5,0,5,0" Margin="105,0,0,0" 
-                    Click="CheckAvailableRoomsButton_Click"></Button>
+                    Click="CheckAvailableRoomsButton_Click" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Background="#FFE1E436">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-146"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
         </ToolBar>
 
-        <DataGrid SelectionMode="Single" Grid.Row="1" Name="RoomsDataGrid" IsReadOnly="True" AutoGeneratingColumn="RoomsDataGrid_AutoGeneratingColumn">
+        <DataGrid SelectionMode="Single" Grid.Row="1" Name="RoomsDataGrid" IsReadOnly="True" AutoGeneratingColumn="RoomsDataGrid_AutoGeneratingColumn" Background="{x:Null}">
 
         </DataGrid>
 
         <ToolBar Grid.Row="2">
-            <Label Content="Guests" Width="90"/>
-            <Button Name="AddGuestButton" Content="Add" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="AddGuestButton_Click"></Button>
-            <Button Name="EditGuestButton" Content="Edit" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="EditGuestButton_Click"></Button>
-            <Button Name="DeleteGuestButton" Content="Delete" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="DeleteGuestButton_Click"></Button>
+            <ToolBar.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF12918B" Offset="0.111"/>
+                    <GradientStop Color="#FF07D8CE" Offset="1"/>
+                </LinearGradientBrush>
+            </ToolBar.Background>
+            <Label Content="Guests" Width="90" FontWeight="Bold"/>
+            <Button Name="AddGuestButton" Content="Add" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="AddGuestButton_Click" Background="#FF0A9DB4" Foreground="#FFFFFBFB"></Button>
+            <Button Name="EditGuestButton" Content="Edit" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="EditGuestButton_Click" Foreground="Black" Background="#FFE5F304"></Button>
+            <Button Name="DeleteGuestButton" Content="Delete" BorderBrush="Black" Padding="5,0,5,0" Margin="5,0,0,0" Click="DeleteGuestButton_Click" Background="#FFDC0909" Foreground="White"></Button>
         </ToolBar>
 
-        <DataGrid SelectionMode="Single" Grid.Row="3" Name="GuestsDataGrid" IsReadOnly="True" AutoGeneratingColumn="GuestsDataGrid_AutoGeneratingColumn">
+        <DataGrid SelectionMode="Single" Grid.Row="3" Name="GuestsDataGrid" IsReadOnly="True" AutoGeneratingColumn="GuestsDataGrid_AutoGeneratingColumn" Background="{x:Null}">
 
         </DataGrid>
 
         <ToolBar Grid.Row="4">
-            <Label Content="Date" Width="90"/>
+            <ToolBar.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF12918B" Offset="0.047"/>
+                    <GradientStop Color="#FF0CA193" Offset="1"/>
+                </LinearGradientBrush>
+            </ToolBar.Background>
+            <Label Content="Date" Width="90" FontWeight="Bold"/>
         </ToolBar>
 
         <StackPanel Grid.Row="5" HorizontalAlignment="Left">
             <Label Content="Start" Width="90"/>
-            <DatePicker Name="StartDatePicker" Margin="5,0,5,0" SelectedDate="{Binding start_date_time}" />
+            <DatePicker Name="StartDatePicker" Margin="5,0,5,0" SelectedDate="{Binding start_date_time}" Foreground="Black" />
             <Label Content="End" Width="90"/>
-            <DatePicker Name="EndDatePicker" Margin="5,0,5,0"  SelectedDate="{Binding end_date_time}"/>
+            <DatePicker Name="EndDatePicker" Margin="5,0,5,0"  SelectedDate="{Binding end_date_time}" Foreground="Black"/>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Orientation="Horizontal" FlowDirection="RightToLeft" >
-            <Button BorderBrush="Black" Name="SaveBtn" Content="Save" Width="80" Height="30" Margin="5,0,5,0" Click="SaveButton_Click"/>
-            <Button BorderBrush="Black" Name="CancelBtn" Content="Cancel" Width="80" Height="30" Click="CancelButton_Click" />
+            <Button BorderBrush="Black" Name="SaveBtn" Content="Save" Width="80" Height="30" Margin="5,0,5,0" Click="SaveButton_Click" RenderTransformOrigin="0.5,0.5" Background="#FF04D1FF" Foreground="#FF060505">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-13" X="18"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button BorderBrush="Black" Name="CancelBtn" Content="Cancel" Width="80" Height="30" Click="CancelButton_Click" RenderTransformOrigin="0.5,0.5" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-13" X="29"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
         </StackPanel>
 
     </Grid>
