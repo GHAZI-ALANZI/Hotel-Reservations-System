@@ -44,7 +44,7 @@ namespace HotelReservations
                 // now checking which menu item to show
 
                 // administrator doesnt have permission for working with reservations, rest is available.
-                if (findUser.user_type == UserType.Administrator)
+                if (findUser.user_type == UserType.Receptionist) 
                 {
                     UsernameTextBox.Text = string.Empty;
                     PasswordBox.Password = string.Empty;
@@ -54,7 +54,7 @@ namespace HotelReservations
                 };
 
                 // if user is receptionist, it will have access to worki with reservations only.
-                if (findUser.user_type == UserType.Receptionist)
+                if (findUser.user_type == UserType.Administrator)
                 {
                     UsernameTextBox.Text = string.Empty;
                     PasswordBox.Password = string.Empty;
