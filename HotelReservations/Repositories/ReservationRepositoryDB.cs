@@ -69,7 +69,7 @@ namespace HotelReservations.Repositories
                 ";
 
                 command.Parameters.Add(new SqlParameter("reservation_room_number", res.reservation_room_number));
-                command.Parameters.Add(new SqlParameter("reservation_type", res.reservation_type.ToString()));
+                command.Parameters.Add(new SqlParameter("reservation_type", res.reservation_type));
                 command.Parameters.Add(new SqlParameter("start_date_time", res.start_date_time));
                 command.Parameters.Add(new SqlParameter("end_date_time", res.end_date_time));
                 command.Parameters.Add(new SqlParameter("total_price", res.total_price));
@@ -96,7 +96,7 @@ namespace HotelReservations.Repositories
 
                 command.Parameters.Add(new SqlParameter("reservation_id", res.reservation_id));
                 command.Parameters.Add(new SqlParameter("reservation_room_number", res.reservation_room_number));
-                command.Parameters.Add(new SqlParameter("reservation_type", res.reservation_type.ToString()));
+                command.Parameters.Add(new SqlParameter("reservation_type", res.reservation_type));
                 command.Parameters.Add(new SqlParameter("start_date_time", res.start_date_time));
                 command.Parameters.Add(new SqlParameter("end_date_time", res.end_date_time));
                 command.Parameters.Add(new SqlParameter("total_price", res.total_price));

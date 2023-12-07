@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="FinishReservation" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="200" Content="Are you sure?" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button BorderBrush="Black" Name="CancelBtn" Content="Cancel" Width="80" Height="30" Click="CancelBtn_Click" />
+                <Button BorderBrush="Black" Name="FinishBtn" Content="Finish" Width="80" Height="30" Margin="5,0,5,0" Click="FinishBtn_Click" Background="Green" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

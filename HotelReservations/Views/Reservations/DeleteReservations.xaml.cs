@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HotelReservations.Model;
+using HotelReservations.Repositories;
+using HotelReservations.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +22,34 @@ namespace HotelReservations.Views.Reservations
     /// </summary>
     public partial class DeleteReservations : Window
     {
-        public DeleteReservations()
+
+        private GuestRepositoryDB guestRepository;
+        private ReservationService reservationService;
+        private Reservation resToDelete;
+        public DeleteReservations(Reservation res)
         {
             InitializeComponent();
+            reservationService = new ReservationService();
+            guestRepository = new GuestRepositoryDB();
+            resToDelete = res;
+        }
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // add modal
+            reservationService.MakeReservationInactive(resToDelete);
+            foreach (Guest g in resToDelete.Guests)
+            {
+                g.guest_is_active = false;
+                guestRepository.Update(g);
+            }
+            DialogResult = true;
+            Close();
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
         }
     }
 }

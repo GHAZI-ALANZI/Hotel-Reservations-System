@@ -6,7 +6,37 @@
         xmlns:local="clr-namespace:HotelReservations.Views.Reservations"
         mc:Ignorable="d"
         Title="DeleteReservations" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/Reservations/texturebackground.webp"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="200" Content="Are you sure?" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-12"/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button BorderBrush="Black" Name="CancelBtn" Content="Cancel" Width="80" Height="30" Click="CancelBtn_Click" />
+                <Button BorderBrush="Black" Name="DeleteBtn" Content="Delete" Width="80" Height="30" Margin="5,0,5,0" Click="DeleteBtn_Click" Background="Red" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
+
