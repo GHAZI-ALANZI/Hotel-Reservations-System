@@ -7,6 +7,34 @@
         mc:Ignorable="d"
         Title="ActiveReservations" Height="450" Width="800">
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="Active Reservations"></Label>
+        </StackPanel>
+
+        <DataGrid SelectionMode="Single" Grid.Row="1" Name="ReservationsDataGrid" IsReadOnly="True" AutoGenerateColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Room Number" Binding="{Binding reservation_room_number}" />
+                <DataGridTextColumn Header="Reservation Type" Binding="{Binding reservation_type}" />
+                <DataGridTextColumn Header="Start Date" Binding="{Binding start_date_time}" />
+                <DataGridTextColumn Header="End Date" Binding="{Binding end_date_time}" />
+                <DataGridTextColumn Header="Total Price" Binding="{Binding total_price}" />
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <DataGrid Name="GuestsDataGrid" IsReadOnly="True" AutoGeneratingColumn="GuestsDataGrid_AutoGeneratingColumn" ItemsSource="{Binding Guests}">
+                        <DataGrid.Columns>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+
     </Grid>
 </Window>
